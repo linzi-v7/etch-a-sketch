@@ -7,12 +7,16 @@
 .container {
     display: flex;
     flex-direction: row;
-    max-width: 960px;
-    min-height: 100%;
+    flex-wrap: wrap;
+
+    /* center the container */
+    margin: 0 auto;
+
+    width: 800px;
+    height: 800px;
 }
 
-.colourable {
-    flex: 1 1 10%;
-    height: 40px;
+.container-item {
+    flex: 1 0 6.25%;
     background-color: aqua;
 }

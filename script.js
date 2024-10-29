@@ -1,29 +1,30 @@
-const container = document.querySelector(".container");
+generateGrid(100);
 
-for (let i = 0; i < 16; i++)
+function changeColor(item)
 {
-    const column = document.createElement("div");
-    column.classList = "colourable"
-
-    column.addEventListener("onmouseover", () =>
-    {
-        column.style = "background-color: black;"
-    })
-
-
-    for (let j = 0; j < 16; j++)
-    {
-        const row = document.createElement("div");
-        row.classList = "colourable";
-        row.addEventListener("onmouseover", () =>
-        {
-            row.style = "background-color: black;"
-        })
-        column.appendChild(row);
-    }
-
-    container.appendChild(column);
+    console.log("here")
+    item.style.backgroundColor = `rgb(${getRandomRGB()}, ${getRandomRGB()}, ${getRandomRGB()})`
 }
 
-//need to add event listener to the divs to change colour on hover.
-//the row divs aren't contained in the container element so they arent flex, needs fix.
+//returns a value between 0 and 255
+function getRandomRGB()
+{
+
+    return Math.floor(Math.random() * 256);
+}
+
+function generateGrid(size = 16)
+{
+    const container = document.querySelector(".container");
+
+    for (let i = 0; i < size * size; i++)
+    {
+        const item = document.createElement("div");
+        item.classList = "container-item";
+        item.style.flex = `1 0 ${100 / size}%`;
+        item.addEventListener("mouseenter", function () { changeColor(item) });
+
+        container.appendChild(item);
+    }
+
+}
