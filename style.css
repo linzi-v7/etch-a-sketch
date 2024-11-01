@@ -8,6 +8,13 @@ body {
     background-color: whitesmoke;
 }
 
+.user-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
 .container {
     display: flex;
     flex-direction: row;
