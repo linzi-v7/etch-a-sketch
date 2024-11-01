@@ -6,10 +6,19 @@ let generateButton = document.querySelector("#generate-grid-button")
 
 generateButton.addEventListener("click", function () { generateGrid(input.value) })
 
+let currentOpacity = 0;
+
+
 function changeColor(item)
 {
     console.log("here")
     item.style.backgroundColor = `rgb(${getRandomRGB()}, ${getRandomRGB()}, ${getRandomRGB()})`
+
+    item.style.opacity = currentOpacity;
+    currentOpacity += 0.1;
+
+    if (currentOpacity > 1)
+        currentOpacity = 0;
 }
 
 //returns a value between 0 and 255
@@ -33,6 +42,7 @@ function generateGrid(size = 16)
     for (let i = 0; i < size * size; i++)
     {
         const item = document.createElement("div");
+
         item.classList = "container-item";
         item.style.flex = `1 0 ${100 / size}%`;
         item.addEventListener("mouseenter", function () { changeColor(item) });
