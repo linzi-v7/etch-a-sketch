@@ -6,7 +6,7 @@ let generateButton = document.querySelector("#generate-grid-button")
 
 generateButton.addEventListener("click", function () { generateGrid(input.value) })
 
-let currentOpacity = 0;
+let currentOpacity = 0.1;
 
 
 function changeColor(item)
@@ -17,8 +17,8 @@ function changeColor(item)
     item.style.opacity = currentOpacity;
     currentOpacity += 0.1;
 
-    if (currentOpacity > 1)
-        currentOpacity = 0;
+    if (currentOpacity > 1) //reset opacity
+        currentOpacity = 0.1;
 }
 
 //returns a value between 0 and 255
